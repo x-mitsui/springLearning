@@ -22,6 +22,10 @@ public class Test01 {
         System.out.println(user3);
         Object user4 = applicationContext.getBean("user4");
         System.out.println(user4);
+        Object user5 = applicationContext.getBean("user5");
+        Object user6 = applicationContext.getBean("user6");
+        System.out.println(user5);
+        System.out.println(user6);
 
     }
 }

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p = "http://www.springframework.org/schema/p"
+       xmlns:c = "http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="user1" class="com.dzq.bean.User"></bean>
@@ -23,4 +25,9 @@
         <constructor-arg index="1" value="xiaos"></constructor-arg>
         <constructor-arg index="2" value="root"></constructor-arg>
     </bean>
+
+    <!--c命名空间和p命名空间，上面方式的简化版-->
+    <bean id="user5" class="com.dzq.bean.User" p:userid="5" p:username="xiaoc" p:password="123"></bean>
+
+    <bean id="user6" class="com.dzq.bean.User" c:userid="6" c:username="xiaoc" c:password="123"></bean>
 </beans>
