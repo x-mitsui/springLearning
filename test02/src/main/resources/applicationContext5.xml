@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p = "http://www.springframework.org/schema/p"
-       xmlns:c = "http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-    <bean id="student1" class="com.dzq.bean.Student">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+    <util:list id="outerBallList">
+        <bean class="com.dzq.bean.Ball" id="ball1" p:name="排球" p:color="白色"></bean>
+        <bean class="com.dzq.bean.Ball" id="ball2" p:name="足球" p:color="黑白"></bean>
+        <bean class="com.dzq.bean.Ball" id="ball3" p:name="篮球" p:color="砖红"></bean>
+    </util:list>
+    <bean id="student2" class="com.dzq.bean.Student">
         <property name="books">
             <array>
                 <value>三国(一)</value>
@@ -39,19 +46,7 @@
                 <entry key="三国(四)" value="罗贯中"></entry>
             </map>
         </property>
-        <property name="ballList">
-            <list>
-                <bean class="com.dzq.bean.Ball" id="ball1">
-                    <property name="name" value="篮球"></property>
-                    <property name="color" value="砖红"></property>
-                </bean>
-                <bean class="com.dzq.bean.Ball" id="ball2">
-                    <property name="name" value="足球"></property>
-                    <property name="color" value="黑白"></property>
-                </bean>
-                <bean class="com.dzq.bean.Ball" id="ball3" p:name="排球" p:color="白色"></bean>
-            </list>
-        </property>
+        <property name="ballList" ref="outerBallList"></property>
     </bean>
 
 
