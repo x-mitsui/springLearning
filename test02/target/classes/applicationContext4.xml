@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student1" class="com.dzq.bean.Student">
+        <property name="books">
+            <array>
+                <value>三国(一)</value>
+                <value>三国(二)</value>
+                <value>三国(三)</value>
+                <value>三国(四)</value>
+            </array>
+        </property>
+        <property name="bookList">
+            <list>
+                <value>三国(一)</value>
+                <value>三国(二)</value>
+                <value>三国(三)</value>
+                <value>三国(四)</value>
+            </list>
+        </property>
+        <property name="bookSet">
+            <set>
+                <value>三国(一)</value>
+                <value>三国(二)</value>
+                <value>三国(三)</value>
+                <value>三国(四)</value>
+            </set>
+        </property>
+        <property name="bookMap">
+            <map>
+                <entry key="三国(一)" value="罗贯中"></entry>
+                <entry key="三国(二)" value="罗贯中"></entry>
+                <entry key="三国(三)" value="罗贯中"></entry>
+                <entry key="三国(四)" value="罗贯中"></entry>
+            </map>
+        </property>
+        <property name="ballList">
+            <list>
+                <bean class="com.dzq.bean.Ball" id="ball1">
+                    <property name="name" value="篮球"></property>
+                    <property name="color" value="砖红"></property>
+                </bean>
+                <bean class="com.dzq.bean.Ball" id="ball2">
+                    <property name="name" value="足球"></property>
+                    <property name="color" value="黑白"></property>
+                </bean>
+                <bean class="com.dzq.bean.Ball" id="ball3">
+                    <property name="name" value="排球"></property>
+                    <property name="color" value="白色"></property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>
