@@ -26,6 +26,7 @@
         <constructor-arg index="2" value="root"></constructor-arg>
     </bean>
 
+    <!--c命名空间和p命名空间，上面方式的简化版-->
     <bean id="user5" class="com.dzq.bean.User" p:userid="5" p:username="xiaoc" p:password="123"></bean>
 
     <bean id="user6" class="com.dzq.bean.User" c:userid="6" c:username="xiaoc" c:password="123"></bean>
