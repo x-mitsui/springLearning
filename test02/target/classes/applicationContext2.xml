@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p = "http://www.springframework.org/schema/p"
+       xmlns:c = "http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--为引用属性赋null值-->
+    <bean id="user1" class="com.dzq.bean.User">
+        <property name="userid">
+            <null></null>
+        </property>
+    </bean>
+
+    <!--&实体符号&amp; >实体符号&gt; <实体符号&lt;-->
+    <bean id="user2" class="com.dzq.bean.User">
+        <property name="userid" value="1"></property>
+        <property name="username" value="&gt;"></property>
+        <property name="password" value="234"></property>
+    </bean>
+
+    <!--用以下形式包裹特殊符号-->
+    <bean id="user3" class="com.dzq.bean.User">
+        <property name="userid" value="1"></property>
+        <property name="username">
+            <value>
+                <![CDATA[&K123<>]]>
+            </value>
+        </property>
+        <property name="password" value="234"></property>
+    </bean>
+
+
+</beans>

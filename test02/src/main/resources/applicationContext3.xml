@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p = "http://www.springframework.org/schema/p"
+       xmlns:c = "http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="date1" class="java.util.Date"></bean>
+
+    <bean id="mouse1" class="com.dzq.bean.Mouse">
+        <property name="name" value="Jerry"></property>
+        <property name="birthday" ref="date1"></property>
+    </bean>
+
+    <bean id="cat1" class="com.dzq.bean.Cat">
+        <property name="name" value="Tom"></property>
+        <property name="mouse" ref="mouse1"></property>
+    </bean>
+
+    <bean id="cat2" class="com.dzq.bean.Cat">
+        <property name="name" value="Tommy"></property>
+        <property name="mouse">
+            <bean class="com.dzq.bean.Mouse">
+                <property name="name" value="Jerex"></property>
+                <property name="birthday">
+                    <bean class="java.util.Date"></bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="mouse4" class="com.dzq.bean.Mouse"></bean>
+    <bean id="cat3" class="com.dzq.bean.Cat">
+        <property name="name" value="Tommy"></property>
+        <property name="mouse" ref="mouse4"></property>
+
+        <!--通过Cat的getMouse方法获取mouse对象-->
+        <property name="mouse.name" value="James"></property>
+        <property name="mouse.birthday">
+            <bean class="java.util.Date"></bean>
+        </property>
+    </bean>
+
+
+</beans>
