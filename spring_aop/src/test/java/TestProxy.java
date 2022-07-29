@@ -1,5 +1,5 @@
-import com.dzq.Dinner;
-import com.dzq.User;
+import com.dzq.testProxy.Dinner;
+import com.dzq.testProxy.User;
 import org.junit.Test;
 
 import java.lang.reflect.InvocationHandler;
@@ -12,7 +12,7 @@ import java.lang.reflect.Proxy;
  * @Description: PACKAGE_NAME
  * @version: 1.0
  */
-public class Test01 {
+public class TestProxy {
     @Test
     public void test01(){
         final Dinner dinner = new User("张三");
