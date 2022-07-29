@@ -33,6 +33,7 @@ public class TestProxy {
                 return res;
             }
         };
+        // 根据接口生成代理
         Dinner Proxy_dinner = (Dinner)Proxy.newProxyInstance(classLoader, interfaces, invocationHandler);
 
         Proxy_dinner.eat();

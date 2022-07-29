@@ -41,6 +41,7 @@ public class TestCglib {
             }
         };
         enhancer.setCallback(methodInterceptor);
+        // 根据父类Person生成代理
         Person personProxy = (Person)enhancer.create();
         personProxy.eat();
         System.out.println("----------------------");
