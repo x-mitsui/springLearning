@@ -8,4 +8,5 @@ package com.dzq.service;
  */
 public interface UserService {
     void add();
+    void print();
 }

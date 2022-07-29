@@ -1,6 +1,7 @@
 package com.dzq.service.impl;
 
 import com.dzq.dao.UserDao;
+import com.dzq.dao.impl.UserDaoImplA;
 import com.dzq.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,5 +22,9 @@ public class UserServiceImpl implements UserService {
     public void add() {
         System.out.println("UserServiceImpl add!");
         userDao.add();
+    }
+    @Override
+    public void print(){
+        ((UserDaoImplA)this.userDao).print();
     }
 }
