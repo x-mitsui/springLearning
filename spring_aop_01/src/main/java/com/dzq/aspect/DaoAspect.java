@@ -18,7 +18,7 @@ import java.util.Arrays;
 @Component
 public class DaoAspect {
     // 定义公共切点以抽取重复代码片段
-    @Pointcut("execution(* com.dzq.dao.UserDao.add(..))")// 切点表达式可以直接指向接口，屏蔽具体实现类信息，降低耦合度
+    @Pointcut("execution(* com.dzq.dao.*.add(..))")// 切点表达式可以直接指向接口，屏蔽具体实现类信息，降低耦合度
     public void addPointCut(){}
 
     @Before("addPointCut()")
