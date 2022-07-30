@@ -17,7 +17,11 @@ import java.util.Arrays;
 @Aspect
 @Component
 public class DaoAspect {
-    @Before("execution(* com.dzq.dao.impl.UserDaoImpl.add(..))")
+    // 定义公共切点以抽取重复代码片段
+    @Pointcut("execution(* com.dzq.dao.impl.UserDaoImpl.add(..))")
+    public void addPointCut(){}
+
+    @Before("addPointCut()")
     public void methodBefore(JoinPoint joinPoint){
         System.out.println("methodBefore invoked ...");
         Object[] args = joinPoint.getArgs();
@@ -25,21 +29,21 @@ public class DaoAspect {
     }
 
     // 无论异常与否都会执行
-    @After("execution(* com.dzq.dao.impl.UserDaoImpl.add(..))")
+    @After("addPointCut()")
     public void methodAfter(){
         System.out.println("methodAfter invoked ...");
     }
 
     // 切点方法返回结果之后增强的功能，returning值名res对应形参res
     // 出现目标异常不执行
-    @AfterReturning(value = "execution(* com.dzq.dao.impl.UserDaoImpl.add(..))", returning = "res777")
+    @AfterReturning(value = "addPointCut()", returning = "res777")
     public void methodAfterReturn(JoinPoint joinPoint, Object res777){
         System.out.println("methodAfterReturning invoked ...");
     }
 
 
     // 只有目标产生异常才执行。
-    @AfterThrowing(value = "execution(* com.dzq.dao.impl.UserDaoImpl.add(..))",throwing = "ex666")
+    @AfterThrowing(value = "addPointCut()",throwing = "ex666")
     public void methodAfterThrowing(Exception ex666){
         System.out.println("methodAfterThrowing invoked ...");
         System.out.println(ex666.getMessage());
@@ -48,7 +52,7 @@ public class DaoAspect {
     // 环绕通知：切点方法之前和之后都进行功能的增强，相当于@Before+@After
     // proceedingJoinPoint代表切点
     // 返回值必须是Object,返回值抛出去
-    @Around("execution(* com.dzq.dao.impl.UserDaoImpl.add(..))")
+    @Around("addPointCut()")
     public Object methodAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         System.out.println("methodAroundA invoked ...");
         Object res = proceedingJoinPoint.proceed();// 控制切点方法在此处执行，addUser
